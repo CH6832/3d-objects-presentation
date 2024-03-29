@@ -1,0 +1,260 @@
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row flex-nowrap">
+                <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light">
+                    <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-black min-vh-100">
+                        <a href="index.html" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-black text-decoration-none">
+                            <span class="fs-5 d-none d-sm-inline">Project documentation</span>
+                        </a>
+                        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                            <li class="nav-item">
+                                <a href="index.html" class="nav-link align-middle px-0">
+                                    <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">About this documentation</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link px-0 align-middle">
+                                    <i class="fs-4 bi-speedometer2"></i><span class="ms-1 d-none d-sm-inline">Website specifications</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="user.html" class="nav-link px-0 align-middle">
+                                    <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">User documentation</span></a>
+                            </li>
+                        </ul>
+                        <hr>
+                        
+                    </div>
+                </div>
+                <!-- adopted section -->
+                <div id="section2" class="col py-3">
+
+                    <h3 id="top">Content</h3>
+                    <ul>
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#team">Team</a></li>
+                        <li><a href="#goals">Goals</a></li>
+                        <li><a href="#phases">Phases</a></li>
+                        <li><a href="#content_structure">Content structure</a></li>
+                        <li><a href="#design">Design</a></li>
+                        <li><a href="#functionality">Functionality</a></li>
+                        <li><a href="#accessibility">Accessability</a></li>
+                        <li><a href="#browser_and_device_support">Browser and device support</a></li>
+                        <li><a href="#hosting">Hosting</a></li>
+                        <li><a href="#ongoing">Ongoing support and maintenance</a></li>
+                        <li><a href="#assumptions">Assumptions</a></li>
+                        <li><a href="#milestones">Milestones</a></li>
+                        <li><a href="#budget">Budget</a></li>
+                    </ul>
+
+                    <br>
+                    <h3 id="overview">Overview</h3><br>
+                    <p class="lead">
+                        In the course of the master study <a href="https://informationsmodellierung.uni-graz.at/en/">Digital Humanities</a> at the <a href="https://www.uni-graz.at/en/">Karl Franzens University of Graz</a> it was possible 
+                        to design and create this project within the framework of the project seminar.<br><br>
+
+                        It is about digital presentation of 3D models of some selected plaster busts from the <a href="http://gipsmuseum.uni-graz.at/">Plaster Museum of the Institute of Archaeology</a>.
+                        The creation of the digital 3D objects was made according to the method of <a href="https://en.wikipedia.org/wiki/Photogrammetry">Photogrammetry</a>.<br><br>
+
+                        The project serves as a final testimony of the knowledge and skills acquired during the course of study.<br><br>
+                        
+                        The target group for this page are those persons who are interested in the plaster busts from the Plaster Museum of the
+                        Institute of Archaeology and all participants of the seminar.<br>
+                    </p>
+
+                    <br>    
+                    <h3 id="team">Team</h3><br>
+                    <p class="lead">
+                        Christoph Hartleb - Project Manager, Designer, Developer - christophhartleb@gmx.at<br>
+                    </p>
+
+                    <br>    
+                    <h3 id="goals">Goals</h3><br>
+                    <p class="lead">
+                        The goal of the project is to present the busts and provide access to metadata about them.
+                    </p>
+                    <br><a href="#top">Top</a><br>
+
+                    <br>    
+                    <h3 id="phases">Phases</h3><br>
+                    <p class="lead">
+                        Phase 1 – Photographing the busts in the plaster museum<br>
+                        Phase 2 – Creation of 3D digital models with Agisoft, Mehslab and Nexus software<br>
+                        Phase 3 – Online presentation with 3DHOP<br>
+                        Phase 4 – Embedding the models into the website<br><br>
+                        Details of the phases can be viewed <a href="documentation.pdf">here</a> (German only).<br>
+                    </p>
+                    <br><a href="#top">Top</a><br>
+
+                    <br>    
+                    <h3 id="content_structure">Content structure</h3><br>
+                    <h5>Folder structure (site map)</h5><br>
+                    <p class="lead">
+                        <img src="img/tree.png" alt="Tree view of folder structure" style="width:900px;height:1800px;">
+                    </p>
+                    <br>
+                    <h5>Content types</h5><br>
+                    <p class="lead">
+                        <h6>Products</h6>
+                        66. Kopf 'Sabouroff'<br>
+                        386. Kopf eines Kouros, 560/550 v. Chr.<br>
+                        366. Kore von der Athener Akropolis<br>
+                        Unbekannte Benennung A<br>
+                        113. Kopf eines Athleten<br>
+                        150. Kopf einer Jünglingsstatue, sog. 'Dresdner Knabe'<br>
+                        349. Relief an der kleinen Metropolis in Athen<br>
+                        365. Weibliches Köpfchen (Sphinx?)<br>
+                        87. Sogenannte 'Athleten Lenormant'<br>
+                        Unbekannte Benennung B<br>
+                        69. Kopf der Athena Promachos<br>
+                        71. Köpfchen des Zeus<br>
+                        67. Kopf des Aristogen<br>
+                        73. Kopf eines Kriegers<br>
+                        123. Sog. 'Kopf Weber-Laborde'<br>
+                        Der Kopf des Plato<br>
+                    </p>
+                    <br><a href="#top">Top</a><br>
+                    <br>
+                    <h5>Content type data</h5><br>
+                    <p class="lead">
+                        <h6>Add 66. Kopf 'Sabouroff'</h6>
+                        <p>Creation date: 540/550 v. Chr.</p>
+
+                        <h6>Add 386. Kopf eines Kouros, 560/550 v. Chr.</h6>
+                        <p>Creation date: 560/550 v. Chr.</p>
+
+                        <h6>Add 366. Kore von der Athener Akropolis</h6>
+                        <p>Creation date: No date</p>
+
+                        <h6>Add Unbekannte Benennung A</h6>
+                        <p>Creation date: 460/450 v. Chr.</p>
+
+                        <h6>Add 113. Kopf eines Athleten</h6>
+                        <p>Creation date: 420/10 v. Chr.</p>
+
+                        <h6>Add 150. Kopf einer Jünglingsstatue, sog. 'Dresdner Knabe'</h6>
+                        <p>Creation date: 4. Jh. v. Chr.</p>
+
+                        <h6>Add 349. Relief an der kleinen Metropolis in Athen</h6>
+                        <p>Creation date: 560/50 v. Chr.</p>
+
+                        <h6>Add 365. Weibliches Köpfchen (Sphinx?)</h6>
+                        <p>Creation date: 480 v. Chr.</p>
+
+                        <h6>Add 87. Sogenannte 'Athleten Lenormant'</h6>
+                        <p>Creation date: 438 v. Chr.</p>
+
+                        <h6>Add Unbekannte Benennung B</h6>
+                        <p>Creation date: No date</p>
+
+                        <h6>Add 69. Kopf der Athena Promachos</h6>
+                        <p>Creation date: 520 v. Chr.</p>
+
+                        <h6>Add 71. Köpfchen des Zeus</h6>
+                        <p>Creation date: 520/10 v. Chr.</p>
+
+                        <h6>Add 67. Kopf des Aristogen</h6>
+                        <p>Creation date: 477/476 v. Chr.</p>
+
+                        <h6>Add 73. Kopf eines Kriegers</h6>
+                        <p>Creation date: 490 v. Chr.</p>
+
+                        <h6>Add 123. Sog. 'Kopf Weber-Laborde'</h6>
+                        <p>Creation date: 440/432 v. Chr.</p>
+
+                        <h6>Add Der Kopf des Plato</h6>
+                        <p>Creation date: No date</p>
+                    </p>
+                    <br>
+                    <h5>Taxonomies</h5><br>
+                    <p class="lead">
+                        No taxonomies were necessary.
+                    </p>
+                    <br>
+                    <h5>Page templates</h5><br>
+                    <p class="lead">
+                        The website is a single page application and therefore a template was not necessary.
+                    </p>
+                    <br><a href="#top">Top</a><br>
+
+                    <br>    
+                    <h3 id="design">Design</h3><br>
+                    <p class="lead">
+                        Design was used from the following template: <a href="https://www.3dhop.net/demo.php">https://www.3dhop.net/demo.php</a>.
+                    </p>
+                    <br><a href="#top">Top</a><br>
+
+                    <br>    
+                    <h3 id="functionality">Functionality</h3><br>
+                    <p class="lead">
+                        <img src="img/site.png" alt="Tree view of folder structure" style="width:1300px;height:700px;">
+                    </p>
+                    <br><a href="#top">Top</a><br>
+
+                    <br>    
+                    <h3 id="accessibility">Accessibility</h3><br>
+                    <p class="lead">
+                        To ensure web accessibility the <a href="https://www.w3.org/TR/WCAG21/"><i>Web Content Accessibility Guidelines (WCAG)</i></a> was followed.
+                    </p>
+                    <br><a href="#top">Top</a><br>
+
+                    <br>    
+                    <h3 id="browser_and_device_support">Browser and device support</h3><br>
+                    <p class="lead">
+                        Websites can be viewed on the <a href="https://www.google.com/chrome/?brand=BNSD&gclid=Cj0KCQjwt-6LBhDlARIsAIPRQcLKkVDchQfHa5bTVFClrdB0MqrcaQZ0M0JfVI4wmDXvuUzCSiMEeroaAuQHEALw_wcB&gclsrc=aw.ds">
+                            Google Chrome Web Browser</a>.
+                    </p>
+                    <br><a href="#top">Top</a><br>
+
+                    <br>    
+                    <h3 id="hosting">Hosting</h3><br>
+                    <p class="lead">
+                        For github sites, the hosting requirements can be found here: <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages">https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages</a><br>
+                        How a website can be hosted on github can be found here: <a href="https://gist.github.com/TylerFisher/6127328">https://gist.github.com/TylerFisher/6127328</a>
+                    </p>
+                    <br><a href="#top">Top</a><br>
+
+                    <br>    
+                    <h3 id="ongoing">Ongoing support and maintenance</h3><br>
+                    <p class="lead">
+                        Updates, maintenance and support will be provided and executed by Christoph Hartleb.
+                    </p>
+                    <br><a href="#top">Top</a><br>
+
+                    <br>    
+                    <h3 id="assumptions">Assumptions</h3><br>
+                    <p class="lead">
+                        Throughout all development phases Christoph Hartleb is repsonsible for executing, supervising and testing every feature implementation and the site itself.
+                    </p>
+                    <br><a href="#top">Top</a><br>
+
+                    <br>    
+                    <h3 id="milestones">Milestones</h3><br>
+                    <p class="lead">
+                        04/2019 - Fotos im Gipsmuseum der Büsten<br>
+                        04/2019 - Erstellung der digitalen 3D Modelle<br>
+                        05/2019 - Development (Front and Back-end) of website<br>
+                        05/2019 - Integrating of models into site<br>
+                        06/2019 - Testing and feedback<br>
+                        06/2019 - Live presentation<br>
+                    </p>
+                    <br><a href="#top">Top</a><br><br>
+
+                    <h3 id="budget">Budget</h3><br>
+                    <p class="lead">
+                        No budget was necessary at any phase of the project. All resources necessary to realize the project were provided
+                        by the <a href="https://www.uni-graz.at/en/">Karl Franzens University of Graz</a>.
+                    </p>
+                    <br><a href="#top">Top</a><br>
+
+                </div>
+                <!-- /adopted section -->
+            </div>
+        </div>
+    </body>
+</html>
