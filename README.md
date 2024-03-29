@@ -12,7 +12,7 @@ Enable JavaScript in your browser, but it should be enabled by default.
 
 ## :pencil2: Usage
 
-:globe_with_meridians: [Click here](https://christoph16478.github.io/3d-objects-presentation/) to open the website and explore the busts.
+:globe_with_meridians: [Click here](https://CH6832.github.io/3d-objects-presentation/) to open the website and explore the busts.
 
 ## :file_folder: Folder structure ##
 
