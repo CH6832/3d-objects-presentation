@@ -1,0 +1,336 @@
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<title>3D Heritage Viewer</title>
+		<!--STYLESHEET-->
+		<link type="text/css" rel="stylesheet" href="css/3dhop.css"/> 
+		<link type="text/css" rel="stylesheet" href="css/flow_template.css"/>   
+		<link type="text/css" rel="stylesheet" href="css/jquery.mCustomScrollbar.css"/>
+		<!--SPIDERGL-->
+		<script type="text/javascript" src="js/spidergl.js"></script>
+		<!--JQUERY-->
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<!--PRESENTER-->
+		<script type="text/javascript" src="js/presenter.js"></script>
+		<!--3D MODELS LOADING AND RENDERING-->
+		<script type="text/javascript" src="js/nexus.js"></script>
+		<script type="text/javascript" src="js/ply.js"></script>
+		<!--TRACKBALLS-->
+		<script type="text/javascript" src="js/trackball_sphere.js"></script>
+		<script type="text/javascript" src="js/trackball_turntable.js"></script>
+		<script type="text/javascript" src="js/trackball_pantilt.js"></script>
+		<script type="text/javascript" src="js/trackball_turntable_pan.js"></script>
+		<!--UTILITY-->
+		<script type="text/javascript" src="js/init.js"></script>
+		<script type="text/javascript" src="js/flow_template.js"></script>
+		<!--OTHER-->
+		<script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+		<script type="text/javascript" src="contentflow/contentflow.js"></script>
+	</head>
+	<body>
+		<table id="tab" align="center" cellspacing="10" onmousedown="if (event.preventDefault) event.preventDefault()">
+			<tr>
+				<td class="filled" colspan="2">
+					<h2 id="title"><a href="https://archaeologie.uni-graz.at/de/museum/">Gipsmuseum - Institut für Archäologie</a></h2>
+					<h4 id="title">Christoph Hartleb</h4>
+				</td>
+			</tr>
+			<tr>
+				<td class="filled">
+					<div id="3dhop" class="tdhop" onmousedown="if (event.preventDefault) event.preventDefault()">
+						<div id="tdhlg">
+							"Powered by 3DHOP"
+						</div>
+						<!--HELP PANEL-->
+						<table id="cover" onclick="if($('#help_panel').css('display')=='table') helpSwitch();">
+							<tr align="center"><td valign="center">
+								<table class="help_panel" id="help_panel" cellspacing="10" onclick="helpSwitch()">
+									<tbody>
+										<tr>
+											<td colspan="6"><h3><img class="close" src="icons/dark/closeone.png" onclick="helpSwitch()"/>3DHOP Help</h3><hr></td>
+										</tr>
+										<tr>
+											<td colspan="6"><h4>Controls</h4></td>
+										</tr>
+										<tr>
+											<td colspan="2" style="width:33%;padding-bottom:0;">Rotate</td>
+											<td  colspan="2" style="width:33%;padding-bottom:0;">Zoom</td>
+											<td  colspan="2" style="width:33%;padding-bottom:0;">Pan</td>
+										</tr>
+										<tr>
+											<td colspan="2"><img src="img/controls/left.png" width="30"/></td>
+											<td colspan="2"><img src="img/controls/wheel.png" width="30"/></td>
+											<td colspan="2"><img src="img/controls/right.png" width="30"/></td>
+										</tr>
+										<tr>
+											<td colspan="2" style="padding-top:0;">Left Button + Move</td>
+											<td colspan="2" style="padding-top:0;">Mouse Wheel</td>
+											<td colspan="2" style="padding-top:0;">Right Button + Move</td></tr>
+										
+										<tr>
+											<td colspan="6"><hr><h4>Toolbar</h4></td>
+										</tr>
+										
+										<tr>
+											<td><img src="icons/dark/zoomin.png" width="30px;"/></td><td colspan="2">Zoom In</td>
+											<td><img src="icons/dark/zoomout.png" width="30px;"/></td><td colspan="2">Zoom Out</td>
+										</tr>
+										<tr>
+											<td style="width:15%"><img src="icons/dark/lightcontrol.png" width="30px;"/></td><td colspan="2" style="width:30%">Toggle Light Control</td>
+											<td style="width:15%"><img src="icons/dark/pick.png" width="30px;"/></td><td colspan="2" style="width:30%">Pick a Point</td>
+										</tr>
+									</tbody>
+								</table>
+							</td></tr>
+						</table>
+						
+						<div id="toolbar">
+							<img id="zoomin"     title="Zoom In"               src="icons/dark/zoomin.png" /><br/>
+							<img id="zoomout"    title="Zoom Out"              src="icons/dark/zoomout.png"/><br/>
+							<img id="light_on"   title="Disable Light Control" src="icons/dark/lightcontrol_on.png" style="position:absolute; visibility:hidden;"/>
+							<img id="light"      title="Enable Light Control"  src="icons/dark/lightcontrol.png"  /><br/>
+							<img id="pick_on"     title="Disable PickPoint Mode" src="icons/dark/pick_on.png" style="position:absolute; visibility:hidden;"/>
+							<img id="pick"        title="Enable PickPoint Mode"  src="icons/dark/pick.png"/><br/>
+							<img id="help"     title="Help"                  src="icons/dark/help.png"   />
+						</div>
+					<canvas id="draw-canvas"/>
+				</td>
+				<td class="filled">
+					<table id="subtab" align="center" onmousedown="if (event.preventDefault) event.preventDefault()">
+						<tr>
+							<td colspan="3">
+								<h4 class="subtitle" style="margin-top:5px;">BESCHREIBUNG</h4>
+								<p style="height:40px;">
+									<span id="handiwork"></span>
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="3">
+								<p align="justify">
+									<div id="description" class="scroll"></div>
+								</p>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr >
+				<td colspan="2" >
+					<div id="contentflow" class="ContentFlow" align="center">
+						<div class="loadIndicator">
+							<div class="indicator">
+							</div>
+						</div>
+						<div class="flow" style="visibility: visible; height: 251px; margin-bottom: -74px;">
+							<a class="item" id="Model 1" title="66. Kopf 'Sabouroff'"><img class="content" src="img/thumbnails/kopfsabouroff.png"/></a>
+							<a class="item" id="Model 2" title="368. Kopf eines Kouros, sog. 'Blonder Kopf'"><img class="content" src="img/thumbnails/kopfkouro.png"/></a>
+							<a class="item" id="Model 3" title="366. Kore von der Athener Akropolis"><img class="content" src="img/thumbnails/athenerakropolis.png"/></a>
+							<a class="item" id="Model 4" title="Unbekannte Benennung"><img class="content" src="img/thumbnails/kritiosknabe.png"/></a>
+							<a class="item" id="Model 5" title="113. Kopf eines Athleten"><img class="content" src="img/thumbnails/kopfeinesathleten.png"/></a>
+							<a class="item" id="Model 6" title="150. Kopf einer Jünglingsstatue, sog. 'Dresdner Knabe'"><img class="content" src="img/thumbnails/dresdnerjuengling.png"/></a>
+							<a class="item" id="Model 7" title="349. Relief an der kleinen Metropolis in Athen"><img class="content" src="img/thumbnails/reliefmetropolis.png"/></a>
+							<a class="item" id="Model 8" title="365. Weibliches Köpfchen (Sphinx?)"><img class="content" src="img/thumbnails/koepfchensphinx.png"/></a>
+							<a class="item" id="Model 9" title="87. Sogenannte 'Athena Lenormant'"><img class="content" src="img/thumbnails/AthenaLenormant.png"/></a>
+							<a class="item" id="Model 10" title="Unbekannte Benennung"><img class="content" src="img/thumbnails/kopfaristogen.png"/></a>
+							<a class="item" id="Model 11" title="69. Kopf der Athena Promachos"><img class="content" src="img/thumbnails/kopfathena.png"/></a>
+							<a class="item" id="Model 12" title="71. Köpfchen des Zeus"><img class="content" src="img/thumbnails/koepfchenzeus.png"/></a>
+							<a class="item" id="Model 13" title="67. Kopf des Aristogeiton ('Pherekydes')"><img class="content" src="img/thumbnails/kopfharmodios.png"/></a>
+							<a class="item" id="Model 14" title="73. Kopf eines Kriegers"><img class="content" src="img/thumbnails/kopfkrieger.png"/></a>
+							<a class="item" id="Model 15" title="123. Sog. 'Kopf Weber-Laborde'"><img class="content" src="img/thumbnails/kopfweberlaborde.png"/></a>
+							<a class="item" id="Model 16" title="Der Kopf des Plato"><img class="content" src="img/thumbnails/plato.png"/></a>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<div id="footer" align="center">
+						<hr>
+							<p>A <a href="http://vcg.isti.cnr.it/" target="_blank">Visual Computing Laboratory - ISTI - CNR</a> initiative</p>
+						</hr>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</body>
+	
+	<script type="text/javascript">
+var presenter = null;
+
+function setup3dhop() { 
+    presenter = new Presenter("draw-canvas");
+
+	presenter.setScene({
+		meshes: {
+			"MeshModel1" : { url: "models/multires/kopfsabouroff.nxz" },
+			"MeshModel2" : { url: "models/multires/kopfkouros.nxz" },
+			"MeshModel3" : { url: "models/multires/athenerakropolis.nxz" },
+			"MeshModel4" : { url: "models/multires/kritiosknabe.nxz" },
+			"MeshModel5" : { url: "models/multires/kopfathleten.nxz" },
+			"MeshModel6" : { url: "models/multires/dresdnerknabe.nxz" },
+			"MeshModel7" : { url: "models/multires/reliefmetropolis.nxz" },
+			"MeshModel8" : { url: "models/multires/koepfchensphinx.nxz" },
+			"MeshModel9" : { url: "models/multires/athenalenormont.nxz" },
+			"MeshModel10" : { url: "models/multires/kopfaristogen.nxz" },
+			"MeshModel11" : { url: "models/multires/kopfathena.nxz" },
+			"MeshModel12" : { url: "models/multires/koepfchenzeus.nxz" },
+			"MeshModel13" : { url: "models/multires/kopfharmodios.nxz" },
+			"MeshModel14" : { url: "models/multires/kopfkriegerneu.nxz" },
+			"MeshModel15" : { url: "models/multires/kopfweberlaborde.nxz" },
+			"MeshModel16" : { url: "models/multires/plato.nxz" }
+		},
+		modelInstances : {
+			"Model 1" : {
+				mesh 	: "MeshModel1",
+				transform : { scale : [0.075, 0.075, 0.075] }
+			},
+			"Model 2" : {
+				mesh 	: "MeshModel2",
+				transform : { scale : [0.075, 0.075, 0.075] }
+			},
+			"Model 3" : {
+				mesh 	: "MeshModel3",
+				transform : { scale : [0.075, 0.075, 0.075] }
+			},
+			"Model 4" : {
+				mesh 	: "MeshModel4",
+				transform : { scale : [0.065, 0.065, 0.065] }
+			},
+			"Model 5" : {
+				mesh 	: "MeshModel5",
+				transform : { scale : [0.075, 0.075, 0.075] }	
+			},
+			"Model 6" : {
+				mesh 	: "MeshModel6",
+				transform : { scale : [0.075, 0.075, 0.075] }
+			},
+			"Model 7" : {
+				mesh 	: "MeshModel7",
+				transform : { scale : [0.065, 0.065, 0.065] }
+			},
+			"Model 8" : {
+				mesh 	: "MeshModel8",
+				transform : { scale : [0.075, 0.075, 0.075] }
+			},
+			"Model 9" : {
+				mesh 	: "MeshModel9",
+				transform : { scale : [0.075, 0.075, 0.075] }
+			},
+			"Model 10" : {
+				mesh 	: "MeshModel10",
+				transform : { scale : [0.075, 0.075, 0.075] }
+			},
+			"Model 11" : {
+				mesh 	: "MeshModel11",
+				transform : { scale : [0.075, 0.075, 0.075] }
+			},
+			"Model 12" : {
+				mesh 	: "MeshModel12",
+				transform : { scale : [0.075, 0.075, 0.075] }
+			},
+			"Model 13" : {
+				mesh 	: "MeshModel13",
+				transform : { scale : [0.075, 0.075, 0.075] }
+			},
+			"Model 14" : {
+				mesh 	: "MeshModel14",
+				transform : { scale : [0.075, 0.075, 0.075] }
+			},
+			"Model 15" : {
+				mesh 	: "MeshModel15",
+				transform : { scale : [0.075, 0.075, 0.075] }
+			},
+			"Model 16" : {
+				mesh 	: "MeshModel16",
+				transform : { scale : [0.085, 0.085, 0.085] }	
+			},
+		},
+		trackball: {
+			type: PanTiltTrackball,
+			trackOptions: {
+				startPanX		: 0.0,
+				startPanY		: 0.0,
+				startAngleX		: 0.0,
+				startAngleY		: 0.0,
+				startDistance	: 5.0,
+				minMaxPanX		: [-1.0, 1.0],
+				minMaxPanY		: [-1.0, 1.0],
+				minMaxAngleX	: [-180.0, 180.0],
+				minMaxAngleY	: [-90.0, 90.0],
+				minMaxDist		: [1.0, 9.0]
+			}
+		},
+		space : {
+			centerMode : "explicit",
+			radiusMode : "specific",
+			whichInstanceRadius	: "Model 16",
+			whichInstanceCenter	: [0.0, 0.0, 0.0],
+			cameraFOV			: 25.0,
+		}
+	});
+	presenter._onEndMeasurement = onEndMeasure;
+
+}
+function actionsToolbar(action) {
+  switch(action) {
+   <!--COMMANDS-->
+   case 'home'    : presenter.animateToTrackballPosition([20.0, 0.0, 0.0, 0.0, 0.0, 3.0]); break;
+   case 'zoomin'  : presenter.zoomIn(); break;
+   case 'zoomout' : presenter.zoomOut(); break;
+   case 'light'   : presenter.enableLightTrackball(true); lightSwitch(); break;
+   case 'light_on': presenter.enableLightTrackball(false); lightSwitch(); break;
+   case 'full'    : fullscreenSwitch(); break;
+   case 'full_on' : fullscreenSwitch(); break;
+   case 'help'    : helpSwitch(); break;
+   case 'pick_on' : pickpointSwitch(false); break;
+   case 'pick'    : pickpointSwitch(true); break;
+   case 'measure_on' : measureSwitch(false); break;
+   case 'measure': measureSwitch(true); break
+  }
+}
+
+//--MEASURE--
+function onEndMeasure(measure) {
+	// measure.toFixed(2) sets the number of decimals when displaying the measure
+	// depending on the model measure units, use "mm","m","km" or whatever you have
+	$('#measure-output').html(measure.toFixed(2) + "mm"); 
+}
+//--MEASURE--
+
+$(document).ready(function(){
+	init3dhop();
+
+	setup3dhop();
+
+	contentflowInit();
+
+	resizeCanvas(($(window).width()-800),($(window).height()-380));
+
+	if($('#draw-canvas').width()<$('#subtab').width()){
+		resizeCanvas($('#subtab').width(), $('#draw-canvas').height());
+	}
+	if($('#draw-canvas').height()<$('#subtab').height()){
+		resizeCanvas($('#draw-canvas').width(), $('#subtab').height());
+	}
+
+	$('body').on('contextmenu', function(e){ return false; }); //don't allow to open contextual menu (right click)
+
+});
+
+document.addEventListener("MSFullscreenChange", function () {
+	if(!document.msFullscreenElement) $('#draw-canvas').css('background-image','none');
+	else $('#draw-canvas').css('background-image','url(./icons/backgrounds/dark.jpg)');
+}, false);
+document.addEventListener("mozfullscreenchange", function () {
+	if(!document.mozFullScreen) $('#draw-canvas').css('background-image','none');
+	else $('#draw-canvas').css('background-image','url(./icons/backgrounds/dark.jpg)');
+}, false);
+document.addEventListener("webkitfullscreenchange", function () {
+	if(!document.webkitIsFullScreen) $('#draw-canvas').css('background-image','none');
+	else $('#draw-canvas').css('background-image','url(./icons/backgrounds/dark.jpg)');
+}, false);
+</script>
+
+</html>
