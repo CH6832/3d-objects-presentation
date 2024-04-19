@@ -40,3 +40,7 @@ Enable JavaScript in your browser, but it should be enabled by default.
 * [Complete list of github markdown emojis](https://dev.to/nikolab/complete-list-of-github-markdown-emoji-markup-5aia)
 * [Awesome template](https://github.com/ma-shamshiri/Human-Activity-Recognition/blob/main/README.md)
 * [.gitignore file](https://git-scm.com/docs/gitignore)
+
+## :bookmark: License
+
+This project is licensed under the terms of the [MIT License](LICENSE).
