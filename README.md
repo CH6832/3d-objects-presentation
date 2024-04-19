@@ -43,4 +43,4 @@ Enable JavaScript in your browser, but it should be enabled by default.
 
 ## :bookmark: License
 
-This project is licensed under the terms of the [MIT License](LICENSE).
+This project is licensed under the terms of the [Creative Commons Attribution 4.0 International License](LICENSE).
