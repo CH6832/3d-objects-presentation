@@ -30,7 +30,9 @@ Enable JavaScript in your browser, but it should be enabled by default.
     |   ├── athenalenormont.nxz
     |   ├── athenerakropolis.nxs
     |   └── ...   
-    |── index.html - projet entry point
+    |── CODE_OF_CONDUCT.md - project code of conduct
+    |── COPYRIGHT - project copyright
+    |── index.html - project entry point
     |── LICENSE - contains license
     └── README.md - project overview
 
@@ -44,3 +46,11 @@ Enable JavaScript in your browser, but it should be enabled by default.
 ## :bookmark: License
 
 This project is licensed under the terms of the [Creative Commons Attribution 4.0 International License](LICENSE).
+
+## :copyright: Copyright
+
+See the [COPYRIGHT](COPYRIGHT) file for copyright and licensing details.
+
+## :straight_ruler: Code of Conduct
+
+Please review our [Code of Conduct](CODE_OF_CONDUCT.md) before contributing to this project.
