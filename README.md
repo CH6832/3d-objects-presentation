@@ -29,8 +29,7 @@ Enable JavaScript in your browser, but it should be enabled by default.
     |   ├── athenalenormont.nxs
     |   ├── athenalenormont.nxz
     |   ├── athenerakropolis.nxs
-    |   └── ...   
-    |── CODE_OF_CONDUCT.md - project code of conduct
+    |   └── ...
     |── COPYRIGHT - project copyright
     |── index.html - project entry point
     |── LICENSE - contains license
