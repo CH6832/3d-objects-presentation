@@ -26,10 +26,10 @@ Enable JavaScript in your browser, but it should be enabled by default.
     ├── img - images for project
     |── js - javascript files
     |── models/multires - contains multiresolutional models
-    |   ├── athenalenormont.nxs
-    |   ├── athenalenormont.nxz
-    |   ├── athenerakropolis.nxs
-    |   └── ...
+        ├── athenalenormont.nxs
+        ├── athenalenormont.nxz
+        ├── athenerakropolis.nxs
+        └── ...
     |── COPYRIGHT - project copyright
     |── index.html - project entry point
     |── LICENSE - contains license
